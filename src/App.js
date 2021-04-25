@@ -1,11 +1,11 @@
-import Canvas from './sort'
+import {NewSort} from './NewSort'
 
 function App() {
   return (
-    <div>
-      <h1>Сортировочки</h1>
-      <Canvas/>
-    </div>
+    <>
+      <div className="header">Сортировочки</div>
+      <NewSort />
+    </>
   );
 }
 

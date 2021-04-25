@@ -1,8 +1,13 @@
 import React, {useEffect, useState} from 'react'
-import { render } from 'react-dom';
 
 export default function El(quant){
-    const render = (x, y) =>{
+    const clear = () => {
+        var canvas = document.getElementById('canvas'); 
+        var c = canvas.getContext('2d'); 
+        c.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    const render = (x, y) => {
         var canvas = document.getElementById('canvas'); 
         var c = canvas.getContext('2d'); 
         c.fillStyle = '#ccddff';
@@ -24,15 +29,16 @@ export default function El(quant){
         c.lineWidth = 4;
         c.stroke();
       }
+
     useEffect(() => {
-        let height = 0 
-        for(let i = 0; i < 10; i++){
-            height = Math.floor(Math.random() * 200)
-            render(150 + i*100, height)
-            console.log('kakakkaak')
-      }
+        clear()
+        for(let i = 0; i < quant.quant; i++){
+            render(150 + i*50, Math.floor(Math.random() * 200))
+        }
     })
     return(
-        <canvas width="800" height="600" id="canvas" style={{ marginTop : '100px' }}></canvas> 
+        <div id = "canvasWrapper">
+            <canvas width="1500" height="600" id="canvas" style={{ marginTop : '100px' }}></canvas> 
+        </div>
     )
 }
